@@ -141,9 +141,9 @@ class _SignUpState extends State<SignUp> {
                       string = passwordController.text;
                     
                     if (passwordController.text.length > 7) {
-                      setState(() {
+                    
                         completed.setMinNumbers(true);
-                      });
+                   
                     }
                     else if (passwordController.text.contains(RegExp(
                      r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$',
@@ -152,10 +152,14 @@ class _SignUpState extends State<SignUp> {
                     }
                      else if (passwordController.text
                         .contains(RegExp(r'^[0-9]+$'))) {
-                      setState(() {
+                   
                         completed.setContainNumber(true);
-                      });
+                     
                     } 
+                     else if (passwordController.text.contains("@")
+                    ) {
+                      completed.setContainCharacter(true);
+                    }
                  
                   },
                 ),
